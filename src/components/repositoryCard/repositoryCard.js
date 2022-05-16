@@ -13,7 +13,8 @@ class RepositoryCard extends Component {
             )
         )      
     }
-
+    
+    //hide or show more Description limit 
     transformDescription = (description, showAllDescription, limit) => {
         let descrShow = null;
         let atext = null;

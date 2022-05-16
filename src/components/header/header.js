@@ -13,9 +13,8 @@ class Header extends Component{
     }
 
     onUpdateSearch = (e) => {
-        let reg = /%/ig;
-
-        const search = (e.target.value).replace(reg, '');
+       
+        const search = (e.target.value).replace(/%/ig, '');//remove % character from search query
 
         this.setState({searchText: search});
 

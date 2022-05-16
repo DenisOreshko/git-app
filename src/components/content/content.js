@@ -7,8 +7,9 @@ import { useState } from 'react';
 import FlexContainer from "../flexContainer/flexContainer";
 
 const Content = ({user}) =>{
-
-    const [page, setPage] = useState(0);
+    
+    //page number of the list of repositories
+    const [page, setPage] = useState(0); 
   
     return (
       <FlexContainer 

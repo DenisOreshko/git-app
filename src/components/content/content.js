@@ -1,7 +1,7 @@
 import ErrorBoundary from "../errorBoundary/ErrorBoundary";
 import UserInfo from "../userInfo/userInfo.js";
 import RepositoriesList from "../repositoriesList/repositoriesList";
-import PageNavigation from "../page-navigation/page-navigation";
+import PageNavigation from "../pageNavigation/pageNavigation";
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import FlexContainer from "../flexContainer/flexContainer";

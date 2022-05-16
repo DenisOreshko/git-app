@@ -1,11 +1,9 @@
-
 import { Component } from 'react';
 import React, { useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import Right from './right.js';
 import Left from './left.js';
-import './page-navigation.css';
-
+import './pageNavigation.css';
 class PageNavigation extends Component{
 
     state = {
@@ -52,11 +50,9 @@ const PaginatedItems = ({ itemsPerPage, onClickedPage,  public_repos }) => {
     
 
     const handlePageClick = (event) => {
-
       const newOffset = (event.selected * itemsPerPage) % public_repos;    
       onClickedPage(event.selected + 1);
       setItemOffset(newOffset);
-
     }
   
     return (    

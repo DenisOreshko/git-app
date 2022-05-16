@@ -24,10 +24,6 @@ class App extends Component{
 
   gitHubService = new GitHubService();
 
-  // followersTransform = (num) =>{
-  //   return num > 999 ? `${(num/1000).toFixed(1)}k` : num;
-  // }
-
   onError = (error) => {
     switch(error.status){
       case 0:   this.setState({    

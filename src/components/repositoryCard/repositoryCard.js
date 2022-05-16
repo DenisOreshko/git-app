@@ -3,39 +3,45 @@ import './repositoryCard.css';
 
 class RepositoryCard extends Component {    
     state = {
-        showDescription: false
+        showAllDescription: false
     }
 
     showDescriptionToggle = () => {  
         this.setState(
-            ({showDescription})=>(
-                {showDescription: !showDescription}
+            ({showAllDescription})=>(
+                {showAllDescription: !showAllDescription}
             )
         )      
     }
 
-    render(){
-        const {name, html_url,description} = this.props;
-        const {showDescription} = this.state;
-
+    transformDescription = (description, showAllDescription, limit) => {
         let descrShow = null;
         let atext = null;
 
         if(description !== null){
-            if(showDescription){
-                    descrShow = description;
-                    if(description.length > 180){
-                        atext = '  hide';
-                    }                 
+            if(showAllDescription){
+
+                descrShow = description;
+                if(description.length > limit){atext = '  hide';} 
+
             }else{
-                    if(description.length > 180){
-                        descrShow = "" + description.slice(0, 180);
-                        atext = ' ...more';
-                    }else{
-                        descrShow = description;
-                    }
+
+                if(description.length > limit){
+                    descrShow = "" + description.slice(0, limit);
+                    atext = ' ...more';
+                }else{
+                    descrShow = description;
+                } 
+                
             }
         }
+        return {descrShow, atext} 
+    }
+
+    render(){
+        const {name, html_url,description} = this.props;
+        const {showAllDescription} = this.state;       
+        const {descrShow, atext} = this.transformDescription(description, showAllDescription, 180);        
 
         return (
             <div className="repositories-card">

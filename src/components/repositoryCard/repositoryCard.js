@@ -6,7 +6,7 @@ class RepositoryCard extends Component {
         showAllDescription: false
     }
 
-    showDescriptionToggle = () => {  
+    showAllDescriptionToggle = () => {  
         this.setState(
             ({showAllDescription})=>(
                 {showAllDescription: !showAllDescription}
@@ -47,7 +47,7 @@ class RepositoryCard extends Component {
             <div className="repositories-card">
                     <a href={html_url} target="_blank" rel="noreferrer">{name}</a>
                     <span className="repository-info">
-                        {descrShow} <a href="#0" className='showMore' onClick={this.showDescriptionToggle}>{atext}</a>
+                        {descrShow} <a href="#0" className='showMore' onClick={this.showAllDescriptionToggle}>{atext}</a>
                     </span>                    
             </div>
         )

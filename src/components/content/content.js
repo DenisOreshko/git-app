@@ -1,5 +1,5 @@
 import ErrorBoundary from "../errorBoundary/ErrorBoundary";
-import UserInfo from "../userInfo/userInfo.js";
+import User from "../user/user.js";
 import RepositoriesList from "../repositoriesList/repositoriesList";
 import PageNavigation from "../pageNavigation/pageNavigation";
 import PropTypes from 'prop-types';
@@ -15,7 +15,7 @@ const Content = ({user}) =>{
       <FlexContainer 
             avatarColumn = {
                 <ErrorBoundary>
-                 <UserInfo userapp={user}/> 
+                 <User user={user}/> 
                </ErrorBoundary>
             }
             repositoriesColumn = {

@@ -1,10 +1,10 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
 import GitHubService from '../../services/GitHubService';
-import ViewUserInfo from '../viewUserInfo/viewUserInfo';
-import './userInfo.css';
+import ViewUser from '../viewUser/viewUser';
+import './user.css';
 
-class UserInfo extends Component { 
+class User extends Component { 
     
     state = {
         user:{},
@@ -14,20 +14,20 @@ class UserInfo extends Component {
     gitHubService = new GitHubService();
 
     componentDidMount(){
-        this.onUserLoaded(this.props.userapp);
+        this.onUserLoaded(this.props.user);
     }
 
     componentDidUpdate(prevProps) {
-        if(prevProps.userapp !== this.props.userapp) {
-            console.log(this.props.userapp.avatar_url);
-            this.onUserLoaded(this.props.userapp);
+        if(prevProps.user !== this.props.user) {
+            console.log(this.props.user.avatar_url);
+            this.onUserLoaded(this.props.user);
         }
       }
     
     followersTransform = (num) =>{
-        let count = num/1000;
-        let ostatok = num%1000 +'';  
-        return num > 999 ? `${Math.trunc(count)}.${ostatok[0]}k` : num;
+        let thousands = num/1000;
+        let hundreds = num%1000 +'';  
+        return num > 999 ? `${Math.trunc(thousands)}.${hundreds[0]}k` : num;
     }
 
     onUserLoaded = (user) => {
@@ -37,7 +37,7 @@ class UserInfo extends Component {
 
     render(){
         const {user, loading} = this.state;
-        const content = !(loading) ? <ViewUserInfo user={user}/> : null;
+        const content = !(loading) ? <ViewUser user={user}/> : null;
         return (
             <>
                 {content}
@@ -46,8 +46,8 @@ class UserInfo extends Component {
     }
 }
 
-UserInfo.propTypes = {
-    userapp: PropTypes.object
+User.propTypes = {
+    user: PropTypes.object
 }
 
-export default UserInfo;
+export default User;

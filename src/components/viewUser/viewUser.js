@@ -1,7 +1,7 @@
 import iconFollowers from '../../resources/img/icon/shared.svg';
 import iconFollowing from '../../resources/img/icon/provate.svg';
 
-const ViewUserInfo = ({user}) => {
+const ViewUser = ({user}) => {
     const {avatar_url, name, html_url, login, followers, following} = user;
 
     return (
@@ -24,4 +24,4 @@ const ViewUserInfo = ({user}) => {
         </div> 
     )
 }
-export default ViewUserInfo;
+export default ViewUser;

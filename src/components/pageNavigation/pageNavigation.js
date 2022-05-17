@@ -30,9 +30,7 @@ class PageNavigation extends Component{
 
     render(){    
         return (
-            <>
-                <PaginatedItems itemsPerPage={4} onClickedPage={this.onPage} public_repos={this.state.public_repos}/>
-            </>
+            <PaginatedItems itemsPerPage={4} onClickedPage={this.onPage} public_repos={this.state.public_repos}/>
         )
     }    
 }
@@ -78,19 +76,11 @@ const PaginatedItems = ({ itemsPerPage, onClickedPage,  public_repos }) => {
 
             <div className="info-pages">             
 
-                {public_repos ? <InfoView itemOffset={itemOffset} itemsPerPage={itemsPerPage} public_repos={public_repos}/> : null}
+                {public_repos ? <>{itemOffset + 1}-{itemOffset + itemsPerPage} of {public_repos} items</> : null}
 
             </div>  
       </div>
     )
-}
-
-const InfoView = ({itemOffset, itemsPerPage, public_repos}) =>{
-
-    return(
-        <>{itemOffset + 1}-{itemOffset + itemsPerPage} of {public_repos} items</>
-    )
-
 }
 
 export default PageNavigation;

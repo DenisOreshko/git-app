@@ -36,8 +36,10 @@ class RepositoryCard extends Component {
                 return this.hidePartDescription(description, limit, null);             
             }
         }        
-        return {describ:null, atext:null};      
+        return {describe:null, atext:null};      
     }
+
+
 
     render(){
         const {name, html_url,description} = this.props;

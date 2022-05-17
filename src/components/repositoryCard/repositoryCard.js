@@ -7,11 +7,9 @@ class RepositoryCard extends Component {
     }
 
     showAllDescriptionToggle = () => {  
-        this.setState(
-            ({showAllDescription})=>(
-                {showAllDescription: !showAllDescription}
-            )
-        )      
+        this.setState(({showAllDescription})=>({
+            showAllDescription: !showAllDescription
+        }))      
     }
     
     //hide or show more Description character limit

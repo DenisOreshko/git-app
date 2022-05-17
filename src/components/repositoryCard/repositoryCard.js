@@ -39,8 +39,6 @@ class RepositoryCard extends Component {
         return {describe:null, atext:null};      
     }
 
-
-
     render(){
         const {name, html_url,description} = this.props;
         const {showAllDescription} = this.state;       

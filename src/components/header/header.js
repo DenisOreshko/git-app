@@ -8,14 +8,14 @@ class Header extends Component{
         super(props);
         this.inputRef = React.createRef();
         this.state = {
-            searchText:''
+            search:''
         }
     }
 
     onUpdateSearch = (e) => {     
         const reg = /%/ig;//remove '%' character from search query
         const search = (e.target.value).replace(reg, '');
-        this.setState({searchText: search});
+        this.setState({search});
     }
 
     onPressEnter = (e) => {        

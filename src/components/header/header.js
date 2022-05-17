@@ -12,26 +12,17 @@ class Header extends Component{
         }
     }
 
-    onUpdateSearch = (e) => {
-       
-        const search = (e.target.value).replace(/%/ig, '');//remove '%' character from search query
-
+    onUpdateSearch = (e) => {     
+        const reg = /%/ig;//remove '%' character from search query
+        const search = (e.target.value).replace(reg, '');
         this.setState({searchText: search});
-
-        if(search === ''){
-            this.props.onSearchUserApp(search); 
-        }
     }
 
-    onUpdateSearchEnter = (e) => {        
+    onPressEnter = (e) => {        
         if(e.key === 'Enter'){            
             e.preventDefault();
-
-            const search = e.target.value;
-
-            this.setState({searchText: search});
-
-            this.props.onSearchUserApp(search);            
+            this.onUpdateSearch(e);            
+            this.props.onSearchUserApp(this.state.search);            
         }        
     }
 
@@ -50,7 +41,7 @@ class Header extends Component{
                             placeholder="Enter GitHub username"
                             value={this.state.searchText}
                             onChange={this.onUpdateSearch}
-                            onKeyDown={this.onUpdateSearchEnter}/>   
+                            onKeyDown={this.onPressEnter}/>   
                 </form>
             </header>
         )

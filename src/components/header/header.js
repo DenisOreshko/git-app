@@ -14,8 +14,8 @@ class Header extends Component{
 
     onUpdateSearch = (e) => {     
         const reg = /%/ig;//remove '%' character from search query
-        const search = (e.target.value).replace(reg, '');
-        this.setState({search});
+        const searchQ = (e.target.value).replace(reg, '');
+        this.setState(({search})=>({search:searchQ}));
     }
 
     onPressEnter = (e) => {        
@@ -39,7 +39,7 @@ class Header extends Component{
                     <input  ref={this.inputRef}
                             type="text" 
                             placeholder="Enter GitHub username"
-                            value={this.state.searchText}
+                            value={this.state.search}
                             onChange={this.onUpdateSearch}
                             onKeyDown={this.onPressEnter}/>   
                 </form>

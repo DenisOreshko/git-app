@@ -6,7 +6,11 @@ class GitHubService{
     
     getResources = async (url) => {
         
-        let res = await fetch(url).catch((err)=>{
+        let res = await fetch(url, {
+            headers: {
+                accept: 'application/vnd.github.v3+json'
+            }
+        }).catch((err)=>{
             throw new ServerError(`ERR_INTERNET_DISCONNECTED`, 0);
         });
 

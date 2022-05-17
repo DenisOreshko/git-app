@@ -1,17 +1,13 @@
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-import GitHubService from '../../services/GitHubService';
 import ViewUser from '../viewUser/viewUser';
 import './user.css';
 
 class User extends Component { 
     
     state = {
-        user:{},
-        loading:false,
+        user:{}
     }
-
-    gitHubService = new GitHubService();
 
     componentDidMount(){
         this.onUserLoaded(this.props.user);
@@ -32,16 +28,12 @@ class User extends Component {
 
     onUserLoaded = (user) => {
         user.followers = this.followersTransform(user.followers);
-        this.setState({user, loading: false});        
+        this.setState({user});        
     } 
 
     render(){
-        const {user, loading} = this.state;
-        const content = !(loading) ? <ViewUser user={user}/> : null;
         return (
-            <>
-                {content}
-            </>
+            <ViewUser user={this.state.user}/>
         )
     }
 }

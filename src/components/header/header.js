@@ -16,10 +16,6 @@ class Header extends Component{
         const reg = /%/ig;//remove '%' character from search query. Make erro 400 github api
         const searchQ = (e.target.value).replace(reg, '');
         this.setState(({search})=>({search:searchQ}));
-
-        if(searchQ == ''){
-            this.props.onSearchUserApp(searchQ);
-        }
     }
 
     onPressEnter = (e) => {        
